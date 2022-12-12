@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <main className="mx-auto max-w-[75rem] ">
+    <main className="mx-auto min-h-screen max-w-[75rem] ">
       <Navbar />
       {children}
     </main>

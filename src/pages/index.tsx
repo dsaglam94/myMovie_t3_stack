@@ -31,7 +31,7 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <MainHero />
-        <MovieRow title={"UpComing"} />
+        <MovieRow title={"UpComing"} rowID={1} />
       </Layout>
     </>
   );
