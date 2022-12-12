@@ -1,15 +1,11 @@
-"use client";
-
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import React from "react";
 import MainHero from "../components/MainHero";
 import Layout from "./layout/Layout";
 import MovieRow from "../components/MovieRow";
-import requests from "../utils/requests";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
@@ -38,9 +34,14 @@ const Home: NextPage = () => {
           fetcher={() => trpc.trendingMovies.getTrendingMovies.useQuery()}
         />
         <MovieRow
-          title={"UpComing"}
+          title={"Upcoming"}
           rowID={2}
           fetcher={() => trpc.upcomingMovies.getUpcomingMovies.useQuery()}
+        />
+        <MovieRow
+          title={"Top Rated"}
+          rowID={3}
+          fetcher={() => trpc.topRatedMovies.getTopRatedMovies.useQuery()}
         />
       </Layout>
     </>

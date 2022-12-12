@@ -2,7 +2,6 @@ import React from "react";
 import MovieInstance from "./MovieInstance";
 
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-
 import { type Movie } from "../types/typesConfig";
 import { type UseTRPCQueryResult } from "@trpc/react-query/shared";
 
@@ -13,7 +12,7 @@ const MovieRow = ({
 }: {
   title: string;
   rowID: number;
-  fetcher: () => UseTRPCQueryResult<[Movie], boolean>;
+  fetcher: () => UseTRPCQueryResult<[Movie], unknown>;
 }) => {
   const { data, isLoading } = fetcher();
 
