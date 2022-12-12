@@ -1,11 +1,21 @@
 import React from "react";
-import { trpc } from "../utils/trpc";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import { type Movie } from "../types/typesConfig";
 import MovieInstance from "./MovieInstance";
 
-const MovieRow = ({ title, rowID }: { title: string; rowID: number }) => {
-  const { data, isLoading } = trpc.upcomingMovies.getUpcomingMovies.useQuery();
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+
+import { type Movie } from "../types/typesConfig";
+import { type UseTRPCQueryResult } from "@trpc/react-query/shared";
+
+const MovieRow = ({
+  title,
+  rowID,
+  fetcher,
+}: {
+  title: string;
+  rowID: number;
+  fetcher: () => UseTRPCQueryResult<[Movie], boolean>;
+}) => {
+  const { data, isLoading } = fetcher();
 
   if (isLoading) {
     return <div>...Loading</div>;

@@ -10,6 +10,7 @@ import MainHero from "../components/MainHero";
 import Layout from "./layout/Layout";
 import MovieRow from "../components/MovieRow";
 import requests from "../utils/requests";
+import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
   console.log("test");
@@ -31,7 +32,16 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <MainHero />
-        <MovieRow title={"UpComing"} rowID={1} />
+        <MovieRow
+          title={"Trending"}
+          rowID={1}
+          fetcher={() => trpc.trendingMovies.getTrendingMovies.useQuery()}
+        />
+        <MovieRow
+          title={"UpComing"}
+          rowID={2}
+          fetcher={() => trpc.upcomingMovies.getUpcomingMovies.useQuery()}
+        />
       </Layout>
     </>
   );
