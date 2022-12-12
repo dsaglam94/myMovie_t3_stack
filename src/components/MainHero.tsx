@@ -13,7 +13,7 @@ const MainHero = () => {
     data?.length && data[Math.floor(Math.random() * data.length)];
 
   return (
-    <div className="relative h-[70vh] w-full">
+    <div className="relative h-[80vh] w-full">
       <Image
         className="absolute top-0 left-0 h-full w-full"
         src={`https://image.tmdb.org/t/p/original/${randomMovie?.backdrop_path}`}
