@@ -1,5 +1,6 @@
 import { router } from "../trpc";
 import { authRouter } from "./auth";
+import { horrorMoviesRouter } from "./getHorrorMovies";
 import { popularMoviesRouter } from "./getPopularMovies";
 import { topRatedMoviesRouter } from "./getTopRatedMovies";
 import { trendingMoviesRouter } from "./getTrendingMovies";
@@ -10,6 +11,7 @@ export const appRouter = router({
   upcomingMovies: upcomingMoviesRouter,
   trendingMovies: trendingMoviesRouter,
   topRatedMovies: topRatedMoviesRouter,
+  horrorMovies: horrorMoviesRouter,
   auth: authRouter,
 });
 
