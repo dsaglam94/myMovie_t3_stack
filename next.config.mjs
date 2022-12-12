@@ -8,7 +8,7 @@
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ["assets.nflxext.com"],
+    domains: ["assets.nflxext.com", "image.tmdb.org"],
   },
   reactStrictMode: true,
   swcMinify: true,

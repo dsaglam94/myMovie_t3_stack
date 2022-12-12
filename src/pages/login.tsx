@@ -3,8 +3,18 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/legacy/image";
 import { FaDiscord } from "react-icons/fa";
 import { CiPizza } from "react-icons/ci";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  React.useEffect(() => {
+    if (router && session?.user) {
+      router.push("/");
+    }
+  }, [session, router]);
+
   return (
     <main className="relative flex h-screen w-screen items-center justify-center">
       <Image
